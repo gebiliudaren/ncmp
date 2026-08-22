@@ -6,7 +6,6 @@ from ..utils.config import Config
 from ..utils.logger import Logger
 from .tasks.daily import DailyTask
 from .tasks.extra import ExtraTask
-from .tasks.vip_sign import VipSignTask
 
 
 class MusicPartnerBot:
@@ -21,10 +20,6 @@ class MusicPartnerBot:
     def run(self) -> bool:
         try:
             self._verify_user()
-
-            # 黑胶乐签（失败不影响后续评分任务）
-            vip_task = VipSignTask(self.session, self.logger, self.config)
-            vip_task.execute()
             
             # 处理基础评分任务
             daily_task = DailyTask(self.session, self.logger, self.config)
