@@ -76,8 +76,8 @@ class Signer:
             score = "3" if has_english else "2"
         elif score_strategy == 3:  # 3-4分策略（默认）
             score = "4" if has_english else "3"
-        else:  # 4分-5分
-            score = random.choice([ "4" , "5" ])
+        else:  # 1,2,4分
+            score = random.choice([ "1" , "2" , "4" ])
             
         return score, f"{score}-A-1"
 
